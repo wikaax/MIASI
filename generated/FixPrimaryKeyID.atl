@@ -1,0 +1,14 @@
+-- @path MM=/ModelRefactoring2/metamodels/pROJEKT_MIASI.ecore
+
+module FixPrimaryKeyID;
+create OUT : MM refining IN : MM;
+
+-- Zasada zmieniająca nazwę kolumny klucza głównego 'ID'
+rule FixPrimaryKeyID {
+  from
+    c : MM!Column (c.isPrimaryKey and c.name = 'ID')
+  to
+    out : MM!Column (
+      name <- c.table.name.substring(1, 1) + '.' + c.table.name + 'ID'
+    )
+}

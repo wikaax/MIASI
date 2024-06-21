@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/PROJEKT_MIASI/src-gen" creationIcons="false" editDirectory="/PROJEKT_MIASI.edit/src-gen"
+    editorDirectory="/PROJEKT_MIASI.editor/src-gen" modelPluginID="PROJEKT_MIASI"
+    modelName="PROJEKT_MIASI" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>pROJEKT_MIASI.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="PROJEKT_MIASI" disposableProviderFactory="true" ecorePackage="pROJEKT_MIASI.ecore#/">
+    <genClasses ecoreClass="pROJEKT_MIASI.ecore#//Column">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pROJEKT_MIASI.ecore#//Column/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pROJEKT_MIASI.ecore#//Column/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pROJEKT_MIASI.ecore#//Column/isNullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pROJEKT_MIASI.ecore#//Column/isPrimaryKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pROJEKT_MIASI.ecore#//Column/isForeignKey"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pROJEKT_MIASI.ecore#//Column/primarykeycontraint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pROJEKT_MIASI.ecore#//Column/foreignkeycontraint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pROJEKT_MIASI.ecore#//Column/table"/>
+    </genClasses>
+    <genClasses ecoreClass="pROJEKT_MIASI.ecore#//PrimaryKeyContraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pROJEKT_MIASI.ecore#//PrimaryKeyContraint/column"/>
+    </genClasses>
+    <genClasses ecoreClass="pROJEKT_MIASI.ecore#//ForeignKeyContraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pROJEKT_MIASI.ecore#//ForeignKeyContraint/column"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pROJEKT_MIASI.ecore#//ForeignKeyContraint/primarykeycontraint"/>
+    </genClasses>
+    <genClasses ecoreClass="pROJEKT_MIASI.ecore#//Table">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pROJEKT_MIASI.ecore#//Table/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pROJEKT_MIASI.ecore#//Table/contraint"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference pROJEKT_MIASI.ecore#//Table/column"/>
+    </genClasses>
+    <genClasses ecoreClass="pROJEKT_MIASI.ecore#//DataBase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pROJEKT_MIASI.ecore#//DataBase/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pROJEKT_MIASI.ecore#//DataBase/table"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="pROJEKT_MIASI.ecore#//Contraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pROJEKT_MIASI.ecore#//Contraint/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pROJEKT_MIASI.ecore#//Contraint/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

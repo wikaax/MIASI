@@ -1,0 +1,14 @@
+-- @path MM=/ModelRefactoring2/metamodels/pROJEKT_MIASI.ecore
+
+module CheckColumnConsistency;
+create OUT : MM refining IN : MM;
+
+--Zasada sprawdzająca spójność kolumny i ustawiająca typ danych na 'varchar' jeśli jest pusty
+rule CheckColumnConsistency {
+    from
+        c : MM!Column (c.type = '' or c.type.oclIsUndefined())
+    to
+        outC : MM!Column (
+            type <- 'varchar(255)'
+        )
+}

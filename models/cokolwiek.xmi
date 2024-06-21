@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pROJEKT_MIASI:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pROJEKT_MIASI="http://www.example.org/pROJEKT_MIASI">
+  <table name="orders">
+    <column name="O.OrderID" type="intiger" isPrimaryKey="true">
+      <primarykeycontraint name="O.ID"/>
+    </column>
+    <column name="O.UserID" type="Integer" isForeignKey="true">
+      <foreignkeycontraint name="ConnectUsers" primarykeycontraint="//@table.1/@column.0/@primarykeycontraint"/>
+    </column>
+    <column name="O.OrderDate" type="Date"/>
+  </table>
+  <table name="Users">
+    <column name="ID" type="Integer" isPrimaryKey="true">
+      <primarykeycontraint name="U.ID"/>
+    </column>
+    <column name="U.Username" type="" isNullable="true"/>
+    <column name="U.Email" type="varchar(255)"/>
+    <column name="U.RegisterDate" type="Date"/>
+  </table>
+  <table name="Products">
+    <column name="P.ProductID" type="Integer" isNullable="true" isPrimaryKey="true">
+      <primarykeycontraint name="P.ID"/>
+    </column>
+    <column name="P.ProductName" type="varchar(255)"/>
+    <column name="P.Price" type="Integer"/>
+    <column name="P.Description" type="varchar(255)" isNullable="true"/>
+  </table>
+  <table name="DetailsOrder">
+    <column name="D.DetailOrderID" type="Integer" isPrimaryKey="true">
+      <primarykeycontraint name="D.ID"/>
+    </column>
+    <column name="D.OrderID" type="Integer" isForeignKey="true">
+      <foreignkeycontraint type="" name="ConnectOrders" primarykeycontraint="//@table.0/@column.0/@primarykeycontraint"/>
+    </column>
+    <column name="D.ProductID" type="Integer" isForeignKey="true">
+      <foreignkeycontraint type="*-1" name="ConnectProducts" primarykeycontraint="//@table.2/@column.0/@primarykeycontraint"/>
+    </column>
+    <column name="D.Quantity" type="Integer"/>
+  </table>
+</pROJEKT_MIASI:DataBase>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pROJEKT_MIASI:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pROJEKT_MIASI="http://www.example.org/pROJEKT_MIASI" name="Shop">
+  <table name="Orders">
+    <contraint xsi:type="pROJEKT_MIASI:PrimaryKeyContraint" type="" name="O.ID" column="//@table.0/@column.0"/>
+    <contraint xsi:type="pROJEKT_MIASI:ForeignKeyContraint" type="*-1" name="Connection_with_Users" column="//@table.0/@column.1" primarykeycontraint="//@table.1/@contraint.0"/>
+    <column name="O.OrderID" type="intiger" isPrimaryKey="true" primarykeycontraint="//@table.0/@contraint.0"/>
+    <column name="O.UserID" type="intiger" isForeignKey="true" foreignkeycontraint="//@table.0/@contraint.1"/>
+    <column name="O.OrderDate" type="date"/>
+  </table>
+  <table name="Users">
+    <contraint xsi:type="pROJEKT_MIASI:PrimaryKeyContraint" type="" name="U.ID" column="//@table.1/@column.0"/>
+    <column name="U.UserID" type="intiger" isPrimaryKey="true" primarykeycontraint="//@table.1/@contraint.0"/>
+    <column name="U.Username" type="varchar(255)" isNullable="true"/>
+    <column name="U.Email" type="varchar(255)"/>
+    <column name="U.RegistrationDate" type="date"/>
+  </table>
+  <table name="Products">
+    <contraint xsi:type="pROJEKT_MIASI:PrimaryKeyContraint" type="" name="P.ID" column="//@table.2/@column.0"/>
+    <column name="P.ProductID" type="intiger" isPrimaryKey="true" primarykeycontraint="//@table.2/@contraint.0"/>
+    <column name="P.ProductName" type="varchar(255)"/>
+    <column name="P.Price" type="intiger"/>
+    <column name="P.Description" type="varchar(255)" isNullable="true"/>
+  </table>
+  <table name="OrderDetails">
+    <contraint xsi:type="pROJEKT_MIASI:PrimaryKeyContraint" type="" name="Od.ID" column="//@table.3/@column.0"/>
+    <contraint xsi:type="pROJEKT_MIASI:ForeignKeyContraint" type="*-1" name="Connection_with_Orders" column="//@table.3/@column.1" primarykeycontraint="//@table.0/@contraint.0"/>
+    <contraint xsi:type="pROJEKT_MIASI:ForeignKeyContraint" type="*-1" name="Connection_with_Products" column="//@table.3/@column.2" primarykeycontraint="//@table.2/@contraint.0"/>
+    <column name="Od.OrderDetailID" type="intiger" isPrimaryKey="true" primarykeycontraint="//@table.3/@contraint.0"/>
+    <column name="Od.OrderID" type="intiger" isForeignKey="true" foreignkeycontraint="//@table.3/@contraint.1"/>
+    <column name="Od.ProductID" type="intiger" isForeignKey="true" foreignkeycontraint="//@table.3/@contraint.2"/>
+    <column name="Od.Quantity" type="intiger"/>
+  </table>
+</pROJEKT_MIASI:DataBase>

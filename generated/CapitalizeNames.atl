@@ -1,0 +1,18 @@
+-- @path MM=/ModelRefactoring2/metamodels/pROJEKT_MIASI.ecore
+
+module CapitalizeNames;
+create OUT : MM refining IN : MM;
+
+-- Zasada zmieniająca nazwy tabel i kolumn na nazwy z dużej litery
+rule CapitalizeNames {
+    from
+        t : MM!Table
+    to
+        outT : MM!Table (
+            name <- thisModule.capitalize(t.name)
+        )
+}
+
+-- Pomocnik do zmiany pierwszej litery na dużą
+helper def : capitalize(s : String) : String =
+  s.substring(1,1).toUpper() + s.substring(2, s.size());

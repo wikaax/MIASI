@@ -1,0 +1,31 @@
+-- @path MM=/ModelRefactoring2/metamodels/pROJEKT_MIASI.ecore
+
+module ModelRefactoring2;
+create OUT : MM refining IN : MM;
+
+-- Zasada naprawiająca właściwość isNullable
+rule FixNullable {
+  from
+    c : MM!Column
+  to
+    out : MM!Column (
+      isNullable <- if c.isPrimaryKey or c.isForeignKey then false else c.isNullable endif
+    )
+}
+
+-- Zasada sprawdzająca spójność kolumny i ustawiająca typ danych na 'varchar' jeśli jest pusty
+--rule CheckColumnConsistency {
+--    from
+--        c : MM!Column (c.type = '' or c.type.oclIsUndefined())
+--    to
+--        outC : MM!Column (
+----            name <- c.name,
+--            type <- 'varchar(255)'
+----            isNullable <- c.isNullable,
+----            isPrimaryKey <- c.isPrimaryKey,
+----            isForeignKey <- c.isForeignKey,
+----            primarykeycontraint <- c.primarykeycontraint,
+----            foreignkeycontraint <- c.foreignkeycontraint,
+----            table <- c.table
+--        )
+--}

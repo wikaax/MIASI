@@ -1,0 +1,14 @@
+-- @path MM=/ModelRefactoring2/metamodels/pROJEKT_MIASI.ecore
+
+module FixIntegerType;
+create OUT : MM refining IN : MM;
+
+-- Zasada zmieniająca typ danych z "intiger" na "Integer"
+rule FixIntegerType {
+    from
+        c : MM!Column (c.type = 'intiger')
+    to
+        outC : MM!Column (
+            type <- 'Integer'
+        )
+}
